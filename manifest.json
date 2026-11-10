@@ -1,0 +1,132 @@
+{
+  "apiVersion": 1,
+  "id": "ms-dos",
+  "name": "MS-DOS",
+  "author": "Multica",
+  "version": "1.0.0",
+  "description": "The 16-colour DOS look with the IBM VGA font: DOS Shell in light mode, and a C:\\> prompt, MS-DOS Editor blue, amber or green phosphor screen in dark mode.",
+  "options": [
+    {
+      "id": "dos-screen",
+      "type": "select",
+      "label": {
+        "en": "Screen (dark mode)",
+        "zh-Hans": "屏幕（深色模式）",
+        "zh-Hant": "螢幕（深色模式）",
+        "ja": "画面（ダークモード）",
+        "ko": "화면(다크 모드)",
+        "es": "Pantalla (modo oscuro)",
+        "fr": "Écran (mode sombre)"
+      },
+      "default": "prompt",
+      "choices": [
+        {
+          "value": "prompt",
+          "label": {
+            "en": "C:\\> prompt",
+            "zh-Hans": "C:\\> 命令行",
+            "zh-Hant": "C:\\> 命令列",
+            "ja": "C:\\> プロンプト",
+            "ko": "C:\\> 프롬프트",
+            "es": "Símbolo C:\\>",
+            "fr": "Invite C:\\>"
+          },
+          "swatch": "#000000"
+        },
+        {
+          "value": "edit",
+          "label": {
+            "en": "MS-DOS Editor",
+            "zh-Hans": "MS-DOS 编辑器",
+            "zh-Hant": "MS-DOS 編輯器",
+            "ja": "MS-DOS エディタ",
+            "ko": "MS-DOS 편집기",
+            "es": "Editor de MS-DOS",
+            "fr": "Éditeur MS-DOS"
+          },
+          "swatch": "#0000AA"
+        },
+        {
+          "value": "amber",
+          "label": {
+            "en": "Amber phosphor",
+            "zh-Hans": "琥珀色荧光屏",
+            "zh-Hant": "琥珀色螢光幕",
+            "ja": "アンバー",
+            "ko": "호박색 모니터",
+            "es": "Fósforo ámbar",
+            "fr": "Phosphore ambre"
+          },
+          "swatch": "#FFB000"
+        },
+        {
+          "value": "green",
+          "label": {
+            "en": "Green phosphor",
+            "zh-Hans": "绿色荧光屏",
+            "zh-Hant": "綠色螢光幕",
+            "ja": "グリーン",
+            "ko": "녹색 모니터",
+            "es": "Fósforo verde",
+            "fr": "Phosphore vert"
+          },
+          "swatch": "#33FF33"
+        }
+      ]
+    },
+    {
+      "id": "dos-font",
+      "type": "select",
+      "label": {
+        "en": "Font",
+        "zh-Hans": "字体",
+        "zh-Hant": "字型",
+        "ja": "フォント",
+        "ko": "글꼴",
+        "es": "Fuente",
+        "fr": "Police"
+      },
+      "default": "vga",
+      "choices": [
+        {
+          "value": "vga",
+          "label": {
+            "en": "IBM VGA 8×16",
+            "zh-Hans": "IBM VGA 8×16",
+            "zh-Hant": "IBM VGA 8×16",
+            "ja": "IBM VGA 8×16",
+            "ko": "IBM VGA 8×16",
+            "es": "IBM VGA 8×16",
+            "fr": "IBM VGA 8×16"
+          }
+        },
+        {
+          "value": "modern",
+          "label": {
+            "en": "Modern monospace",
+            "zh-Hans": "现代等宽字体",
+            "zh-Hant": "現代等寬字型",
+            "ja": "モダンな等幅",
+            "ko": "현대식 고정폭",
+            "es": "Monoespaciada moderna",
+            "fr": "Chasse fixe moderne"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dos-cursor",
+      "type": "toggle",
+      "label": {
+        "en": "Blinking cursor after headings",
+        "zh-Hans": "标题后的闪烁光标",
+        "zh-Hant": "標題後的閃爍游標",
+        "ja": "見出しの後に点滅カーソル",
+        "ko": "제목 뒤 깜박이는 커서",
+        "es": "Cursor parpadeante tras los títulos",
+        "fr": "Curseur clignotant après les titres"
+      },
+      "default": true
+    }
+  ]
+}

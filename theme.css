@@ -1,0 +1,288 @@
+/* MS-DOS for Multica.
+   Variables: https://github.com/multica-ai/multica/blob/main/docs/theming.md
+
+   Light mode is the DOS Shell: white panes, a grey frame and blue
+   selection bars. Dark mode is a CRT screen, picked with the Screen option:
+   the C:\> prompt (grey on black), the blue of MS-DOS Editor, or an amber
+   or green phosphor monitor. Colours come from the 16-colour CGA/EGA
+   palette, nudged where text would miss WCAG AA.
+
+   Font: IBM VGA 8x16 from The Ultimate Oldschool PC Font Pack by VileR,
+   https://int10h.org/oldschool-pc-fonts/ (CC BY-SA 4.0). */
+
+@font-face {
+  font-family: "Multica DOS VGA";
+  src: url(fonts/vga-8x16.woff) format("woff");
+  font-display: block;
+}
+
+.theme-light,
+.theme-dark {
+  --font-ui: "Multica DOS VGA", "Cascadia Mono", Consolas, Menlo;
+  --font-content-latin: "Multica DOS VGA", "Cascadia Mono", Consolas, Menlo;
+  --font-mono: "Multica DOS VGA", "Cascadia Mono", Consolas, Menlo;
+  --h1-weight: 400;
+  --h2-weight: 400;
+  --h3-weight: 400;
+  --h4-weight: 400;
+
+  --radius: 0px;
+  --avatar-radius: 0px;
+  --label-radius: 0px;
+  --surface-shadow: none;
+  --page-shadow: none;
+  --link-underline-offset: 3px;
+}
+
+.theme-light[data-theme-option-dos-font="modern"],
+.theme-dark[data-theme-option-dos-font="modern"] {
+  --font-ui: "Cascadia Mono", Consolas, Menlo, "DejaVu Sans Mono";
+  --font-content-latin: "Cascadia Mono", Consolas, Menlo, "DejaVu Sans Mono";
+  --font-mono: "Cascadia Mono", Consolas, Menlo, "DejaVu Sans Mono";
+}
+
+/* DOS Shell. */
+.theme-light {
+  --app-shell: #c0c0c0;
+  --sidebar: #c0c0c0;
+  --page-canvas: #ffffff;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-hover: #e4e4e4;
+  --surface-selected: #d8d8f0;
+  --surface-border: #555555;
+  --page-border-color: #000000;
+  --border: #aaaaaa;
+  --input: #555555;
+  --muted: #e4e4e4;
+  --secondary: #c0c0c0;
+  --accent: #d8d8f0;
+  --sidebar-accent: #d8d8f0;
+  --sidebar-border: #555555;
+
+  --foreground: #000000;
+  --surface-foreground: #000000;
+  --surface-selected-foreground: #000000;
+  --card-foreground: #000000;
+  --popover-foreground: #000000;
+  --secondary-foreground: #000000;
+  --accent-foreground: #000000;
+  --sidebar-foreground: #000000;
+  --sidebar-accent-foreground: #000000;
+  --muted-foreground: #4a4a4a;
+  --faint-foreground: #626262;
+
+  --rail-item-color: #000000;
+  --rail-item-active-background: #0000aa;
+  --rail-item-active-color: #ffffff;
+  --nav-item-color: #000000;
+  --nav-item-hover-background: #ffffff;
+  --nav-item-active-background: #0000aa;
+  --nav-item-active-color: #ffffff;
+  --menu-item-hover-background: #0000aa;
+  --menu-item-hover-color: #ffffff;
+
+  --primary: #0000aa;
+  --primary-foreground: #ffffff;
+  --brand: #0000aa;
+  --brand-foreground: #ffffff;
+  --sidebar-primary: #0000aa;
+  --sidebar-primary-foreground: #ffffff;
+  --ring: #0000aa;
+  --sidebar-ring: #0000aa;
+
+  --destructive: #aa0000;
+  --success: #00aa00;
+  --warning: #aa5500;
+  --info: #0000aa;
+  --priority-high: #aa5500;
+
+  --chart-1: #0000aa;
+  --chart-2: #00aaaa;
+  --chart-3: #00aa00;
+  --chart-4: #aa5500;
+  --chart-5: #aa00aa;
+
+  --floating-shadow: 8px 8px 0 rgb(0 0 0 / 0.45);
+  --menu-shadow: 6px 6px 0 rgb(0 0 0 / 0.35);
+  --tooltip: #000000;
+  --tooltip-shadow: 4px 4px 0 rgb(0 0 0 / 0.35);
+  --find-match: #ffff55;
+  --find-match-active: #55ffff;
+  --find-match-foreground: #000000;
+  --highlight-background: #ffff55;
+  --scrollbar-thumb: #aaaaaa;
+  --scrollbar-thumb-hover: #555555;
+
+  --code-keyword: #0000aa;
+  --code-string: #007a00;
+  --code-comment: #555555;
+  --code-number: #aa00aa;
+  --code-function: #aa5500;
+  --code-property: #007a7a;
+  --code-variable: #000000;
+  --code-type: #aa5500;
+  --code-deletion: #aa0000;
+  --code-tag: #0000aa;
+  --code-punctuation: #555555;
+}
+
+/* The C:\> prompt. */
+.theme-dark {
+  --dos-screen: #000000;
+  --dos-hover: #141414;
+  --dos-select: #222222;
+  --dos-text: #aaaaaa;
+  --dos-bright: #ffffff;
+  --dos-dim: #8e8e8e;
+  --dos-faint: #707070;
+  --dos-line: #555555;
+  --dos-accent: #55ffff;
+
+  --app-shell: var(--dos-screen);
+  --sidebar: var(--dos-screen);
+  --page-canvas: var(--dos-screen);
+  --surface: var(--dos-screen);
+  --surface-raised: var(--dos-screen);
+  --surface-hover: var(--dos-hover);
+  --surface-selected: var(--dos-select);
+  --surface-border: var(--dos-line);
+  --page-border-color: var(--dos-line);
+  --border: var(--dos-line);
+  --input: var(--dos-text);
+  --muted: var(--dos-hover);
+  --secondary: var(--dos-hover);
+  --accent: var(--dos-select);
+  --sidebar-accent: var(--dos-select);
+  --sidebar-border: var(--dos-line);
+
+  --foreground: var(--dos-text);
+  --surface-foreground: var(--dos-text);
+  --surface-selected-foreground: var(--dos-bright);
+  --card-foreground: var(--dos-text);
+  --popover-foreground: var(--dos-text);
+  --secondary-foreground: var(--dos-bright);
+  --accent-foreground: var(--dos-bright);
+  --sidebar-foreground: var(--dos-text);
+  --sidebar-accent-foreground: var(--dos-bright);
+  --muted-foreground: var(--dos-dim);
+  --faint-foreground: var(--dos-faint);
+
+  --rail-item-color: var(--dos-text);
+  --rail-item-active-background: var(--dos-text);
+  --rail-item-active-color: var(--dos-screen);
+  --nav-item-color: var(--dos-text);
+  --nav-item-hover-color: var(--dos-bright);
+  --nav-item-active-background: var(--dos-text);
+  --nav-item-active-color: var(--dos-screen);
+  --menu-item-hover-background: var(--dos-text);
+  --menu-item-hover-color: var(--dos-screen);
+  --h1-color: var(--dos-bright);
+  --h2-color: var(--dos-bright);
+  --h3-color: var(--dos-bright);
+  --bold-color: var(--dos-bright);
+
+  --primary: var(--dos-text);
+  --primary-foreground: var(--dos-screen);
+  --brand: var(--dos-accent);
+  --brand-foreground: var(--dos-screen);
+  --sidebar-primary: var(--dos-accent);
+  --sidebar-primary-foreground: var(--dos-screen);
+  --ring: var(--dos-accent);
+  --sidebar-ring: var(--dos-accent);
+
+  --destructive: #ff5555;
+  --success: #55ff55;
+  --warning: #ffff55;
+  --info: #55ffff;
+  --priority-high: #ffaa55;
+
+  --chart-1: #55ffff;
+  --chart-2: #55ff55;
+  --chart-3: #ffff55;
+  --chart-4: #ff55ff;
+  --chart-5: #ff5555;
+
+  --floating-shadow: 0 0 0 1px var(--dos-line), 8px 8px 0 rgb(0 0 0 / 0.6);
+  --menu-shadow: 0 0 0 1px var(--dos-line), 6px 6px 0 rgb(0 0 0 / 0.5);
+  --tooltip: var(--dos-text);
+  --tooltip-shadow: none;
+  --find-match: #ffff55;
+  --find-match-active: #55ffff;
+  --find-match-foreground: #000000;
+  --highlight-background: #aa5500;
+  --scrollbar-thumb: var(--dos-line);
+  --scrollbar-thumb-hover: var(--dos-text);
+
+  --code-keyword: #ffff55;
+  --code-string: #55ff55;
+  --code-comment: var(--dos-dim);
+  --code-number: #ff55ff;
+  --code-function: #55ffff;
+  --code-property: #55ffff;
+  --code-variable: var(--dos-text);
+  --code-type: #ffff55;
+  --code-deletion: #ff5555;
+  --code-tag: #ff55ff;
+  --code-punctuation: var(--dos-dim);
+}
+
+/* MS-DOS Editor. */
+.theme-dark[data-theme-option-dos-screen="edit"] {
+  --dos-screen: #0000aa;
+  --dos-hover: #0a0ac0;
+  --dos-select: #1c1cd0;
+  --dos-text: #ffffff;
+  --dos-bright: #ffff55;
+  --dos-dim: #bdbdbd;
+  --dos-faint: #8c8cd8;
+  --dos-line: #aaaaaa;
+  --dos-accent: #55ffff;
+  --highlight-background: #00aaaa;
+}
+
+/* Amber phosphor. */
+.theme-dark[data-theme-option-dos-screen="amber"] {
+  --dos-hover: #1f1500;
+  --dos-select: #2e2000;
+  --dos-text: #ffb000;
+  --dos-bright: #ffd580;
+  --dos-dim: #c08400;
+  --dos-faint: #9a6a00;
+  --dos-line: #7a5400;
+  --dos-accent: #ffd580;
+}
+
+/* Green phosphor. */
+.theme-dark[data-theme-option-dos-screen="green"] {
+  --dos-hover: #002200;
+  --dos-select: #003300;
+  --dos-text: #33ff33;
+  --dos-bright: #b3ffb3;
+  --dos-dim: #22b322;
+  --dos-faint: #1f8f1f;
+  --dos-line: #157015;
+  --dos-accent: #b3ffb3;
+}
+
+/* The VGA font has one weight; bold is drawn in a brighter colour instead. */
+:root[data-theme="ms-dos"]:not([data-theme-option-dos-font="modern"]) body {
+  font-synthesis: none;
+}
+
+/* The blinking cursor after level 1 headings. */
+:root[data-theme-option-dos-cursor] [data-mc="content"] h1::after {
+  content: "_";
+  margin-left: 0.1em;
+  animation: dos-cursor 1.06s steps(1) infinite;
+}
+
+@keyframes dos-cursor {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root[data-theme-option-dos-cursor] [data-mc="content"] h1::after {
+    animation: none;
+  }
+}
