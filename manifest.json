@@ -3,7 +3,7 @@
   "id": "ms-dos",
   "name": "MS-DOS",
   "author": "Multica",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The 16-colour DOS look with the IBM VGA font: DOS Shell in light mode, and a C:\\> prompt, MS-DOS Editor blue, amber or green phosphor screen in dark mode.",
   "options": [
     {

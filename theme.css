@@ -3,9 +3,12 @@
 
    Light mode is the DOS Shell: white panes, a grey frame and blue
    selection bars. Dark mode is a CRT screen, picked with the Screen option:
-   the C:\> prompt (grey on black), the blue of MS-DOS Editor, or an amber
-   or green phosphor monitor. Colours come from the 16-colour CGA/EGA
-   palette, nudged where text would miss WCAG AA.
+   the C:\> prompt (grey on black), MS-DOS Editor, or an amber or green
+   phosphor monitor. MS-DOS Editor layers its colours the way Turbo Vision
+   and EDIT.COM do: a blue work area, grey menus and dialogs, green for
+   the highlighted item and buttons, cyan bars and yellow headings.
+   Colours come from the 16-colour CGA/EGA palette, nudged where text
+   would miss WCAG AA.
 
    Font: IBM VGA 8x16 from The Ultimate Oldschool PC Font Pack by VileR,
    https://int10h.org/oldschool-pc-fonts/ (CC BY-SA 4.0). */
@@ -138,8 +141,26 @@
   --dos-faint: #707070;
   --dos-line: #555555;
   --dos-accent: #55ffff;
+  --dos-input: #3a3a3a;
+  --dos-pick: var(--dos-text);
+  --dos-pick-text: var(--dos-screen);
+  --dos-tip: var(--dos-text);
+  --dos-tip-text: var(--dos-screen);
 
-  --app-shell: var(--dos-screen);
+  /* The frame (rail, sidebar, menus and dialogs) matches the screen unless
+     a screen gives it colours of its own. */
+  --dos-frame: var(--dos-screen);
+  --dos-frame-hover: var(--dos-hover);
+  --dos-frame-select: var(--dos-select);
+  --dos-frame-line: var(--dos-line);
+  --dos-frame-text: var(--dos-text);
+  --dos-frame-bright: var(--dos-bright);
+  --dos-frame-dim: var(--dos-dim);
+  --dos-frame-faint: var(--dos-faint);
+  --dos-frame-ring: var(--dos-accent);
+  --dos-frame-input: var(--dos-input);
+
+  --app-shell: var(--dos-frame);
   --sidebar: var(--dos-screen);
   --page-canvas: var(--dos-screen);
   --surface: var(--dos-screen);
@@ -149,7 +170,7 @@
   --surface-border: var(--dos-line);
   --page-border-color: var(--dos-line);
   --border: var(--dos-line);
-  --input: var(--dos-text);
+  --input: var(--dos-input);
   --muted: var(--dos-hover);
   --secondary: var(--dos-hover);
   --accent: var(--dos-select);
@@ -168,15 +189,6 @@
   --muted-foreground: var(--dos-dim);
   --faint-foreground: var(--dos-faint);
 
-  --rail-item-color: var(--dos-text);
-  --rail-item-active-background: var(--dos-text);
-  --rail-item-active-color: var(--dos-screen);
-  --nav-item-color: var(--dos-text);
-  --nav-item-hover-color: var(--dos-bright);
-  --nav-item-active-background: var(--dos-text);
-  --nav-item-active-color: var(--dos-screen);
-  --menu-item-hover-background: var(--dos-text);
-  --menu-item-hover-color: var(--dos-screen);
   --h1-color: var(--dos-bright);
   --h2-color: var(--dos-bright);
   --h3-color: var(--dos-bright);
@@ -205,7 +217,7 @@
 
   --floating-shadow: 0 0 0 1px var(--dos-line), 8px 8px 0 rgb(0 0 0 / 0.6);
   --menu-shadow: 0 0 0 1px var(--dos-line), 6px 6px 0 rgb(0 0 0 / 0.5);
-  --tooltip: var(--dos-text);
+  --tooltip: var(--dos-tip);
   --tooltip-shadow: none;
   --find-match: #ffff55;
   --find-match-active: #55ffff;
@@ -227,18 +239,122 @@
   --code-punctuation: var(--dos-dim);
 }
 
-/* MS-DOS Editor. */
+.theme-dark :is([data-mc="app-rail"], [data-mc="window-toolbar"], [data-mc="tab-bar"], [data-mc="sidebar"], [data-slot="dialog-content"], [data-slot="alert-dialog-content"], [data-slot="sheet-content"], [data-slot="popover-content"], [data-slot="dropdown-menu-content"], [data-slot="select-content"]) {
+  --app-shell: var(--dos-frame);
+  --sidebar: var(--dos-frame);
+  --sidebar-foreground: var(--dos-frame-text);
+  --sidebar-border: var(--dos-frame-line);
+  --background: var(--dos-frame);
+  --page-canvas: var(--dos-frame);
+  --surface: var(--dos-frame);
+  --surface-raised: var(--dos-frame);
+  --card: var(--dos-frame);
+  --popover: var(--dos-frame);
+  --surface-hover: var(--dos-frame-hover);
+  --muted: var(--dos-frame-hover);
+  --secondary: var(--dos-frame-hover);
+  --surface-selected: var(--dos-frame-select);
+  --accent: var(--dos-frame-select);
+  --sidebar-accent: var(--dos-frame-select);
+  --surface-border: var(--dos-frame-line);
+  --border: var(--dos-frame-line);
+  --input: var(--dos-frame-input);
+  --ring: var(--dos-frame-ring);
+
+  --foreground: var(--dos-frame-text);
+  --surface-foreground: var(--dos-frame-text);
+  --card-foreground: var(--dos-frame-text);
+  --popover-foreground: var(--dos-frame-text);
+  --surface-selected-foreground: var(--dos-frame-bright);
+  --secondary-foreground: var(--dos-frame-bright);
+  --accent-foreground: var(--dos-frame-bright);
+  --sidebar-accent-foreground: var(--dos-frame-bright);
+  --muted-foreground: var(--dos-frame-dim);
+  --faint-foreground: var(--dos-frame-faint);
+
+  --rail-item-color: var(--dos-frame-text);
+  --rail-item-active-background: var(--dos-pick);
+  --rail-item-active-color: var(--dos-pick-text);
+  --nav-item-color: var(--dos-frame-text);
+  --nav-item-hover-color: var(--dos-frame-bright);
+  --nav-item-active-background: var(--dos-pick);
+  --nav-item-active-color: var(--dos-pick-text);
+  --menu-item-hover-background: var(--dos-pick);
+  --menu-item-hover-color: var(--dos-pick-text);
+}
+
+/* Tooltips are always drawn with dark-mode text, so they set their own. */
+.theme-dark [data-slot="tooltip-content"] {
+  --foreground: var(--dos-tip-text);
+  --muted-foreground: var(--dos-tip-text);
+}
+
+/* The navigation panel sits inside the page, so it paints its own fill. */
+.theme-dark [data-mc="sidebar"] {
+  background-color: var(--sidebar);
+}
+
+/* MS-DOS Editor: blue work area, grey menu bar and dialogs, green for
+   the highlighted item and buttons, cyan bars, yellow headings. */
 .theme-dark[data-theme-option-dos-screen="edit"] {
   --dos-screen: #0000aa;
   --dos-hover: #0a0ac0;
-  --dos-select: #1c1cd0;
+  --dos-select: #00007a;
   --dos-text: #ffffff;
   --dos-bright: #ffff55;
-  --dos-dim: #bdbdbd;
+  --dos-dim: #aaaaaa;
   --dos-faint: #8c8cd8;
-  --dos-line: #aaaaaa;
+  --dos-line: #00aaaa;
   --dos-accent: #55ffff;
+  --dos-input: #5555ff;
+  --dos-pick: #00aa00;
+  --dos-pick-text: #000000;
+  --dos-tip: #00aaaa;
+  --dos-tip-text: #000000;
+
+  --dos-frame: #aaaaaa;
+  --dos-frame-hover: #c8c8c8;
+  --dos-frame-select: #00aa00;
+  --dos-frame-line: #000000;
+  --dos-frame-text: #000000;
+  --dos-frame-bright: #000000;
+  --dos-frame-dim: #00007a;
+  --dos-frame-faint: #3a3a3a;
+  --dos-frame-ring: #0000aa;
+  --dos-frame-input: #ffffff;
+
+  --page-border-color: #ffffff;
+  --button-primary: #00aa00;
+  --button-primary-foreground: #000000;
+  --board-column-background: #00007a;
+  --board-card-background: #0000aa;
+  --issue-group-header-background: #00aaaa;
+  --issue-group-header-hover-background: #55ffff;
   --highlight-background: #00aaaa;
+  --floating-shadow: 0 0 0 1px #000000, 8px 8px 0 rgb(0 0 0 / 0.6);
+  --menu-shadow: 0 0 0 1px #000000, 6px 6px 0 rgb(0 0 0 / 0.5);
+}
+
+/* Cyan bars carry black text, like the Editor's status line. */
+:root[data-theme-option-dos-screen="edit"].theme-dark [data-mc="issue-group-header"] {
+  --foreground: #000000;
+  --muted-foreground: #000000;
+  --faint-foreground: #000000;
+  color: var(--foreground);
+}
+
+/* On grey and cyan, status and priority colours take the dark CGA set. */
+:root[data-theme-option-dos-screen="edit"].theme-dark :is([data-mc="app-rail"], [data-mc="window-toolbar"], [data-mc="tab-bar"], [data-mc="sidebar"], [data-mc="issue-group-header"], [data-slot="dialog-content"], [data-slot="alert-dialog-content"], [data-slot="sheet-content"], [data-slot="popover-content"], [data-slot="dropdown-menu-content"], [data-slot="select-content"]) {
+  --destructive: #aa0000;
+  --success: #005500;
+  --warning: #7a3d00;
+  --info: #0000aa;
+  --priority-high: #7a3d00;
+}
+
+/* Turbo Vision buttons sit on a hard shadow. */
+:root[data-theme-option-dos-screen="edit"].theme-dark [data-slot="button"][data-variant="default"] {
+  box-shadow: 3px 3px 0 #000000;
 }
 
 /* Amber phosphor. */
@@ -250,6 +366,7 @@
   --dos-dim: #c08400;
   --dos-faint: #9a6a00;
   --dos-line: #7a5400;
+  --dos-input: #3d2a00;
   --dos-accent: #ffd580;
 }
 
@@ -262,6 +379,7 @@
   --dos-dim: #22b322;
   --dos-faint: #1f8f1f;
   --dos-line: #157015;
+  --dos-input: #0a4a0a;
   --dos-accent: #b3ffb3;
 }
 

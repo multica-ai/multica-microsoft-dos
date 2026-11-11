@@ -6,7 +6,9 @@ Install it from **Settings → Appearance → Manage** in Multica, or download `
 
 ## Options
 
-- **Screen (dark mode)**: `C:\>` prompt (default, grey on black), MS-DOS Editor (white on blue), amber phosphor or green phosphor.
+- **Screen (dark mode)**: `C:\>` prompt (default, grey on black), MS-DOS Editor, amber phosphor or green phosphor.
+
+  MS-DOS Editor layers its colours the way EDIT.COM and Borland's Turbo Vision do. The work area is white on blue with yellow headings and cyan rules. The rail, sidebar, menus and dialogs are black on grey. The highlighted item and primary buttons are black on green, buttons sit on a hard shadow, and issue group headers and tooltips are cyan bars.
 - **Font**: IBM VGA 8×16 (default) or a modern monospace (Cascadia Mono, Consolas or Menlo, whichever is installed). Choose the modern one if the bitmap font is hard to read at your display scale.
 - **Blinking cursor after headings**: on by default. It stays still when your system asks for reduced motion.
 
