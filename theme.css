@@ -84,6 +84,8 @@
   --nav-item-active-color: #ffffff;
   --menu-item-hover-background: #0000aa;
   --menu-item-hover-color: #ffffff;
+  --display-chip-pressed-background: #0000aa;
+  --display-chip-pressed-color: #ffffff;
 
   --primary: #0000aa;
   --primary-foreground: #ffffff;
