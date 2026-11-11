@@ -76,6 +76,7 @@
   --faint-foreground: #626262;
 
   --rail-item-color: #000000;
+  --rail-item-hover-background: #0000aa;
   --rail-item-active-background: #0000aa;
   --rail-item-active-color: #ffffff;
   --nav-item-color: #000000;
@@ -275,6 +276,7 @@
   --faint-foreground: var(--dos-frame-faint);
 
   --rail-item-color: var(--dos-frame-text);
+  --rail-item-hover-background: var(--dos-pick);
   --rail-item-active-background: var(--dos-pick);
   --rail-item-active-color: var(--dos-pick-text);
   --nav-item-color: var(--dos-frame-text);
